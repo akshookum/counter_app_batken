@@ -10,15 +10,4 @@ class FirstController extends GetxController {
   void kosh() => san.value++;
 }
 
-void otkoz(BuildContext context, int san) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => SecondPage(
-        sanKelet: san,
-      ),
-    ),
-  );
-}
-
 class CetXController {}

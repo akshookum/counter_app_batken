@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 
 import '../secont/second_page.dart';
 
-class FirsPage extends StatelessWidget {
-  FirsPage({super.key});
+class FirstPage extends StatelessWidget {
+  FirstPage({super.key});
 
-  FirstController _firstController = Get.put(FirstController());
+  FirstController _firstController = Get.put<FirstController>(
+    FirstController(),
+  );
 
   // void otkoz() {
   //   Navigator.push(
@@ -29,10 +31,10 @@ class FirsPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: Center(
-          child: Text(
-            'Counter App',
-            style: TextStyle(color: Colors.black),
-          ),
+          child: Obx(() => Text(
+                'Counter App ${_firstController.san.value}',
+                style: TextStyle(color: Colors.black),
+              )),
         ),
       ),
       body: Column(
@@ -43,7 +45,7 @@ class FirsPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12), color: Colors.grey),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 150, vertical: 15),
-              child: Text('San:${_firstController.san}'),
+              child: Obx(() => Text('San:${_firstController.san.value}')),
             ),
           ),
           SizedBox(
@@ -92,14 +94,7 @@ class FirsPage extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SecondPage(
-                    sanKelet: _firstController.san.value,
-                  ),
-                ),
-              );
+              Get.to(() => SecondPage());
             },
             child: Icon(
               Icons.skip_next,
