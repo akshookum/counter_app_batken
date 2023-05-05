@@ -1,8 +1,10 @@
+
+
 import 'package:flutter/material.dart';
 
-class EkinchiBet extends StatelessWidget {
-  EkinchiBet({required this.sanKelet});
-  int sanKelet;
+class SecondPage extends StatelessWidget {
+  SecondPage({required this.sanKelet});
+  int sanKelet; 
 
   @override
   Widget build(BuildContext context) {
